@@ -1,8 +1,5 @@
 //
 //  HTTPClient.swift
-//  1800PetMeds-RX-iOS
-//
-//  Created by Encora on 02/08/24.
 //
 
 import Foundation

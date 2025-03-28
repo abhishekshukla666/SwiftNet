@@ -1,8 +1,5 @@
 //
-//  PMSessionManager.swift
-//  1800PetMeds-RX-iOS
-//
-//  Created by Encora on 02/10/24.
+//  SessionManager.swift
 //
 
 import Foundation

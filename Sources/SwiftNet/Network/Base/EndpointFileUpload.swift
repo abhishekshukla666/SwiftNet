@@ -1,8 +1,5 @@
 //
 //  EndpointFileUpload.swift
-//  1800PetMeds-RX-iOS
-//
-//  Created by Bibhishan Biradar on 08/10/24.
 //
 
 import Foundation
