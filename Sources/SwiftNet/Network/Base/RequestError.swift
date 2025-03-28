@@ -5,16 +5,16 @@
 import Foundation
 
 // MARK: - Welcome
-struct ResponseData: Decodable {
-    let status: ResponseStatus?
+public struct ResponseData: Decodable {
+    public let status: ResponseStatus?
 }
 
 // MARK: - Status
-struct ResponseStatus: Decodable {
-    let errorMessages, code: String?
+public struct ResponseStatus: Decodable {
+    public let errorMessages, code: String?
 }
 extension DecodingError {
-    var prettyDescription: String {
+    public var prettyDescription: String {
         switch self {
         case let .typeMismatch(type, context):
             "DecodingError.typeMismatch \(type), value \(context.prettyDescription) @ ERROR: \(localizedDescription)"
@@ -48,8 +48,8 @@ extension DecodingError.Context {
     }
 }
 
-enum RequestError: LocalizedError, Equatable {
-    static func == (lhs: RequestError, rhs: RequestError) -> Bool {
+public enum RequestError: LocalizedError, Equatable {
+    public static func == (lhs: RequestError, rhs: RequestError) -> Bool {
         lhs.errorDescription == rhs.errorDescription
     }
     
@@ -68,7 +68,7 @@ enum RequestError: LocalizedError, Equatable {
     case serverError(String)
     case unauthorizedRequest
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .decode:
             return "Decode error"
@@ -101,7 +101,7 @@ enum RequestError: LocalizedError, Equatable {
         }
     }
     
-    var recoverySuggestion: String? {
+    public var recoverySuggestion: String? {
         switch self {
         case .decode(let error):
             return error.localizedDescription
@@ -134,7 +134,7 @@ enum RequestError: LocalizedError, Equatable {
         }
     }
     
-    static func failureTypeForAuthorization(_ responseData: [String: Any]?) -> Result<String, RequestError> {
+    public static func failureTypeForAuthorization(_ responseData: [String: Any]?) -> Result<String, RequestError> {
         if responseData?["message"] as? String == "Invalid Credentials." {
             return .failure(.invalidCredentials)
         } else if responseData?["detail"] as? String == "Invalid token provided." {
